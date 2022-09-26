@@ -5,7 +5,7 @@ int	main(void)
 	Zombie	*zombie;
 
 	zombie = newZombie("Foo");
-	zombie->ft_announce();
+	zombie->announce();
 	delete zombie;
 
 	randomChump("Bar");
