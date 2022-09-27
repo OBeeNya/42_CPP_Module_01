@@ -1,5 +1,5 @@
 #ifndef HUMANA_HPP
-# define HUMAN_CPP
+# define HUMANA_CPP
 
 # include "Weapon.hpp"
 
@@ -8,15 +8,15 @@ class	HumanA
 
 	public:
 
-	HumanA::HumanA(Weapon weapon);
-	HumanA::~HumanA(void);
+	HumanA(const std::string name, Weapon &weapon);
+	~HumanA(void);
 
 	void	attack(void) const;
 
 	private:
 
-	Weapon		_weapon;
-	std::string	name;
+	std::string	_name;
+	Weapon		&_weapon;
 
 };
 
