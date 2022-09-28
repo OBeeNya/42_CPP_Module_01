@@ -4,7 +4,7 @@
 
 int	main(int ac, char **av)
 {
-	std::string	s = "";
+	std::string	end = "";
 	std::string	line;
 	if (ac != 4)
 	{
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	std::string	s2 = av[3];
 	while (!ifs.eof())
 	{
+		std::string	s = "";
 		std::getline(ifs, line);
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -46,8 +47,11 @@ int	main(int ac, char **av)
 			else
 				s.push_back(line[i]);
 		}
+		end.append(s);
+		end.append("\n");
 	}
+	end.pop_back();
 	std::ofstream	ofs(av[1]);
-	ofs << s;
+	ofs << end;
 	return (0);
 }
