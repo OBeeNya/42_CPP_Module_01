@@ -3,12 +3,9 @@
 
 int	main(void)
 {
-	std::string str;
-	std::string	*stringPTR;
+	std::string str = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &str;
 	std::string	&stringREF = str;
-
-	str = "HI THIS IS BRAIN";
-	stringPTR = &str;
 
 	std::cout << "adresse de la string en mémoire : " << &str << std::endl;
 	std::cout << "adresse stockée dans stringPTR : " << stringPTR << std::endl;
