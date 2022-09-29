@@ -7,13 +7,6 @@ HumanB::HumanB(const std::string name) :
 	return ;
 }
 
-HumanB::HumanB(const std::string name, Weapon weapon) :
-	_name(name),
-	_weapon(&weapon)
-{
-	return ;
-}
-
 HumanB::~HumanB(void)
 {
 	return ;
