@@ -18,6 +18,14 @@ int	main(int ac, char **av)
 		std::cout << "Error" << std::endl << "File does not exist" << std::endl;
 		return (1);
 	}
+	std::string s1 = av[2];
+	std::string	s2 = av[3];
+	if (!s1.compare(""))
+	{
+		std::cout << "Error" << std::endl << "Cannot replace an empty string"
+		<< std::endl;
+		return (1);
+	}
 	while (!ifs.eof())
 	{
 		std::getline(ifs, line);
@@ -25,8 +33,6 @@ int	main(int ac, char **av)
 		end.append("\n");
 	}
 	end.pop_back();
-	std::string s1 = av[2];
-	std::string	s2 = av[3];
 	size_t	f = end.find(s1);
 	while (f != std::string::npos)
 	{
