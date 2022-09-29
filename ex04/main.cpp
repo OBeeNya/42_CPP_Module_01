@@ -18,40 +18,23 @@ int	main(int ac, char **av)
 		std::cout << "Error" << std::endl << "File does not exist" << std::endl;
 		return (1);
 	}
-	std::string s1 = av[2];
-	std::string	s2 = av[3];
 	while (!ifs.eof())
 	{
-		std::string	s = "";
 		std::getline(ifs, line);
-		for (int i = 0; i < line.length(); i++)
-		{
-			int j = 0;
-			if (line[i] == s1[j] && i + s1.length() <= line.length())
-			{
-				int	k;
-				for (k = i; k < i + s1.length(); k++)
-				{
-					if (line[k] != s1[j])
-						break ;
-					j++;
-				}
-				if (k == i + s1.length())
-				{
-					s.append(s2);
-					i = k - 1;
-				}
-				else
-					s.push_back(line[i]);
-			}
-			else
-				s.push_back(line[i]);
-		}
-		end.append(s);
+		end.append(line);
 		end.append("\n");
 	}
 	end.pop_back();
-	std::ofstream	ofs(av[1]);
+	std::string s1 = av[2];
+	std::string	s2 = av[3];
+	size_t	f = end.find(s1);
+	while (f != std::string::npos)
+	{
+		end.erase(f, s1.length());
+		end.insert(f, s2);
+		f = end.find(s1);
+	}
+	std::ofstream	ofs(std::string(av[1]) + ".replace");
 	ofs << end;
 	return (0);
 }
